@@ -1,19 +1,30 @@
 <html>
 	<head>
+		<title> WebGL Fundamentals </title>
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 		<script id="vertex" type="x-shader"></script>
 		<script id="fragment" type="x-shader"></script>
 		<script type="text/javascript">
 		function init()
 		{
+			var canvas = document.getElementById("mycanvas");
+    		var gl = canvas.getContext("experimental-webgl");
 
+			if(gl)
+			{
+				console.log("GL initialized!");
+			}
+
+			gl.viewport(0,0, canvas.width, canvas.height);
+			gl.clearColor(0, 0.5, 0, 1);
+			gl.clear(gl.COLOR_BUFFER_BIT);
 		}
 		</script>
 	</head>
 
 	<body onload="init()">
-		<canvas> id="mycanvas" width="800" height="500">
+		<canvas id="mycanvas" width="800" height="500">
 			
 		</canvas>
-		<p>Hello there!</p>
 	</body>
 </html>
